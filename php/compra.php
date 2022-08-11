@@ -12,9 +12,10 @@
     <?php
     //
     $user_card_store = true;
-    $value_pay = 55;
+    $value_pay = 450;
 
     $value_delivery = 50;
+    $receveis_discount = true;
 
     /*
     if ($user_card_store == true && $value_pay >= 100) {
@@ -26,25 +27,34 @@
         echo "compra aprovada o valor do frente sera $value_delivery :(";
     } */
 
-    $user_card_store = true;
-    $value_pay = 55;
 
-    $value_delivery = 50;
-    $receveis_discount = false;
-    if ($user_card_store == true && $value_pay >= 100) {
+    if ($user_card_store == true && $value_pay >= 400) {
         $value_delivery = 0;
-        $receveis_discount = true;
+
+    }else if($user_card_store == true && $value_pay >= 300){
+        $value_delivery = 10;
+
+    }else if($user_card_store == true && $value_pay >= 100){
+        $value_delivery = 25;
+
+    } else {
+
     }
     ?>
     <h1>Detalhes do pedido</h1>
 
-    <p>Possui cartão da loja?
+    <p>Possui cartão da loja? <?= $user_card_store = true ? 'yes' : 'no' ?>
         <?php
+
+        // condição ? true : false
+
+        /*
         if ($user_card_store == true) {
             echo 'SIM';
         } else {
             echo 'NÃO';
-        }
+        }*/
+
         ?>
     </p>
     <p>Valor da compra: <?= $value_pay ?>
@@ -59,7 +69,7 @@
 
     ?>
     </p>
-    <p>Valor da compra: <?= $value_delivery ?></p>
+    <p>Valor do frete: <?= $value_delivery ?></p>
 </body>
 
 </html>
