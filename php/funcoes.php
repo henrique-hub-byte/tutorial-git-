@@ -53,7 +53,11 @@
             return $imposto;
         }
 
+<<<<<<< HEAD
         echo CalcularImposto(1903.98);
+=======
+        echo CalcularImposto(2000.98);
+>>>>>>> new_branch
     ?>
 </body>
 </html>
